@@ -1,4 +1,4 @@
-import Graph from "./flow";
+import Graph from "./FlowBuilder";
 
 function App() {
   return <Graph />;
