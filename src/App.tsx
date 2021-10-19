@@ -1,7 +1,7 @@
-import Graph from "./FlowBuilder";
+import FlowBuilder from "./FlowBuilder";
 
 function App() {
-  return <Graph />;
+  return <FlowBuilder />;
 }
 
 export default App;

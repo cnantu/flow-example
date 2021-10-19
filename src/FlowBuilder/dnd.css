@@ -5,6 +5,8 @@
 }
 
 .dndflow aside {
+  display: flex;
+  flex-direction: column;
   padding: 16px;
   font-size: 14px;
   background: #fdfdfd;
@@ -17,6 +19,10 @@
 
 .dndflow aside .description {
   margin-bottom: 10px;
+}
+
+.dndflow aside .nodes {
+  margin-top: auto;
 }
 
 .dndflow .reactflow-wrapper {
