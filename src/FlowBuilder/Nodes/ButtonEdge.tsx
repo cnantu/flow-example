@@ -6,6 +6,8 @@ import {
   ElementId,
 } from "react-flow-renderer";
 
+import { useControllerDispatch } from "../FlowContext";
+
 const colors: Record<string, string> = {
   input: "#0041d0",
   output: "#ff0072",
@@ -67,6 +69,8 @@ export default function CustomEdge({
   arrowHeadType: any;
   markerEndId: any;
 }) {
+  const insertNode = useControllerDispatch();
+
   const edgePath = getBezierPath({
     sourceX,
     sourceY,
@@ -96,19 +100,15 @@ export default function CustomEdge({
     event.preventDefault();
     event.stopPropagation();
 
-    const { insertNode } = data;
-    if (insertNode) {
-      const type = event.dataTransfer.getData("application/reactflow");
-    //   console.log("dropTarget dropNode", type);
-      insertNode({
-        type,
-        edgeId: id,
-        source,
-        target,
-        x: edgeCenterX - nodeWidth / 2,
-        y: edgeCenterY - nodeHeight / 2,
-      });
-    }
+    const type = event.dataTransfer.getData("application/reactflow");
+    insertNode({
+      type,
+      edgeId: id,
+      source,
+      target,
+      x: edgeCenterX - nodeWidth / 2,
+      y: edgeCenterY - nodeHeight / 2,
+    });
   };
 
   return (
